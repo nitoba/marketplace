@@ -82,4 +82,21 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     color: THEME.COLORS.BLUE,
   },
+
+  filterAndSearchAdsContainer: {
+    rowGap: 16,
+    marginTop: 40,
+  },
+
+  filterAndSearchAdsTitle: {
+    fontFamily: THEME.FONTS.REGULAR,
+    fontSize: 14,
+    color: THEME.COLORS.GRAY_600,
+  },
+
+  searchElements: {
+    flexDirection: 'row',
+    columnGap: 8,
+    alignItems: 'center',
+  },
 })

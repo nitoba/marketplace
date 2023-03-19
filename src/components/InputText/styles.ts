@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
+    width: '100%',
+  },
+
+  wrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -16,7 +20,7 @@ export const styles = StyleSheet.create({
     borderColor: 'transparent',
   },
   input: {
-    flex: 1,
+    height: '100%',
     rowGap: 4,
   },
 

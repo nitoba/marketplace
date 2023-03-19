@@ -1,6 +1,6 @@
 import { THEME } from '@theme/index'
 import { Eye, EyeClosed } from 'phosphor-react-native'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import {
   TextInput,
   TextInputProps,
@@ -13,9 +13,15 @@ import { styles } from './styles'
 
 type Props = {
   errorMessage?: string
+  rightElement?: ReactNode
 } & TextInputProps
 
-export function InputText({ secureTextEntry, errorMessage, ...props }: Props) {
+export function InputText({
+  secureTextEntry,
+  errorMessage,
+  rightElement,
+  ...props
+}: Props) {
   const [isFocused, setIsFocused] = useState(false)
   const [showPassword, setShowPassword] = useState(!secureTextEntry)
 
@@ -26,8 +32,8 @@ export function InputText({ secureTextEntry, errorMessage, ...props }: Props) {
   }
 
   return (
-    <View style={styles.input}>
-      <View style={[styles.container, { borderColor: focusedColor }]}>
+    <View style={styles.container}>
+      <View style={[styles.wrapper, { borderColor: focusedColor }]}>
         <TextInput
           style={styles.input}
           placeholderTextColor={THEME.COLORS.GRAY_400}
@@ -45,6 +51,7 @@ export function InputText({ secureTextEntry, errorMessage, ...props }: Props) {
             )}
           </TouchableOpacity>
         )}
+        {rightElement}
       </View>
       {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
     </View>
