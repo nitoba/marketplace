@@ -99,4 +99,24 @@ export const styles = StyleSheet.create({
     columnGap: 8,
     alignItems: 'center',
   },
+
+  listProducts: {
+    flex: 1,
+    marginTop: 40,
+  },
+
+  contentList: {
+    paddingBottom: 24,
+    gap: 24,
+  },
+
+  emptyList: {
+    height: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptyText: {
+    fontFamily: THEME.FONTS.BOLD,
+    fontSize: 18,
+  },
 })

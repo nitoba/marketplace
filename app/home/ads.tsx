@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {
   Plus,
@@ -11,8 +11,31 @@ import { styles } from '../../src/styles/home/ads.styles'
 import { Button } from '@components/Button'
 import { THEME } from '@theme/index'
 import { InputText } from '@components/InputText'
+import { CardProduct } from '@components/CardProduct'
+import { useEffect, useState } from 'react'
+import { api } from '../../src/lib/axios'
+import { ProductAd } from '../../src/types/productAd'
 
 export default function AdsScreen() {
+  const [productsAds, setProductsAds] = useState<ProductAd[]>([])
+
+  useEffect(() => {
+    api.get('/products').then(({ data }) => {
+      const productsAds = data.products.map((product: any, index: number) => {
+        return {
+          id: product.id,
+          title: product.title,
+          price: product.price,
+          thumbnail: product.thumbnail,
+          condition: index % 2 === 0 ? 'new' : 'used',
+          ownerAvatarUrl: 'https://github.com/nitoba.png',
+        }
+      })
+
+      setProductsAds(productsAds)
+    })
+  }, [])
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -80,6 +103,30 @@ export default function AdsScreen() {
           }
         />
       </View>
+
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        style={styles.listProducts}
+        contentContainerStyle={styles.contentList}
+        data={productsAds}
+        keyExtractor={({ id }) => id}
+        numColumns={2}
+        renderItem={({ item, index }) => (
+          <View
+            style={[
+              { flex: 1 },
+              index % 2 === 0 ? { marginRight: 10 } : { marginLeft: 10 },
+            ]}
+          >
+            <CardProduct product={item} onPressCard={() => {}} />
+          </View>
+        )}
+        ListEmptyComponent={() => (
+          <View style={styles.emptyList}>
+            <Text style={styles.emptyText}>Não há nenhum anúncio postado </Text>
+          </View>
+        )}
+      />
     </SafeAreaView>
   )
 }
