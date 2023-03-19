@@ -1,6 +1,6 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Plus } from 'phosphor-react-native'
+import { Plus, Tag, ArrowRight } from 'phosphor-react-native'
 import { styles } from '../../src/styles/home/ads.styles'
 import { Button } from '@components/Button'
 import { THEME } from '@theme/index'
@@ -15,7 +15,7 @@ export default function AdsScreen() {
             source={{ uri: 'https://github.com/nitoba.png' }}
             alt=""
           />
-          <View style={styles.welcomeTexts}>
+          <View>
             <Text style={styles.title}>Boas vindas,</Text>
             <Text style={styles.username}>Bruno</Text>
           </View>
@@ -27,6 +27,27 @@ export default function AdsScreen() {
           full={false}
           leftIcon={<Plus color={THEME.COLORS.GRAY_100} size={16} />}
         />
+      </View>
+
+      <View style={styles.summaryAdsContainer}>
+        <Text style={styles.summaryAdsTitle}>
+          Seus produtos anunciados para venda
+        </Text>
+        <View style={styles.summaryAdsContent}>
+          <View style={styles.summaryAdsTexts}>
+            <Tag color={THEME.COLORS.BLUE} size={22} />
+            <View>
+              <Text style={styles.summaryAdsNumber}>4</Text>
+              <Text style={styles.summaryAdsNumberSubtitle}>
+                anúncios ativos
+              </Text>
+            </View>
+          </View>
+          <TouchableOpacity style={styles.goToMyAdsButton}>
+            <Text style={styles.goToMyAdsButtonText}>Meus anúncios</Text>
+            <ArrowRight color={THEME.COLORS.BLUE} size={16} />
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   )

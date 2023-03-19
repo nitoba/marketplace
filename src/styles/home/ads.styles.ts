@@ -28,7 +28,6 @@ export const styles = StyleSheet.create({
     borderColor: THEME.COLORS.BLUE_LIGHT,
     borderWidth: 3,
   },
-  welcomeTexts: {},
 
   title: {
     fontFamily: THEME.FONTS.REGULAR,
@@ -37,5 +36,50 @@ export const styles = StyleSheet.create({
   username: {
     fontFamily: THEME.FONTS.BOLD,
     fontSize: 16,
+  },
+
+  summaryAdsContainer: {
+    marginTop: 40,
+    rowGap: 16,
+  },
+  summaryAdsTitle: {
+    fontFamily: THEME.FONTS.REGULAR,
+    fontSize: 14,
+    color: THEME.COLORS.GRAY_600,
+  },
+  summaryAdsContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: 'rgba(100, 122, 199, 0.1)',
+    borderRadius: 6,
+    paddingLeft: 16,
+    paddingVertical: 12,
+  },
+  summaryAdsTexts: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    columnGap: 16,
+  },
+  summaryAdsNumber: {
+    fontFamily: THEME.FONTS.BOLD,
+    fontSize: 20,
+    color: THEME.COLORS.GRAY_600,
+  },
+  summaryAdsNumberSubtitle: {
+    fontFamily: THEME.FONTS.REGULAR,
+    fontSize: 12,
+    color: THEME.COLORS.GRAY_600,
+  },
+  goToMyAdsButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    columnGap: 8,
+    padding: 16,
+  },
+  goToMyAdsButtonText: {
+    fontFamily: THEME.FONTS.BOLD,
+    fontSize: 12,
+    color: THEME.COLORS.BLUE,
   },
 })
