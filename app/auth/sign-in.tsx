@@ -17,6 +17,7 @@ import Logo from '../../src/assets/logo.svg'
 
 import { InputText } from '../../src/components/InputText'
 import { styles } from '../../src/styles/auth/sign-in/styles'
+import { useAuth } from '@contexts/auth'
 
 const signInFormSchema = z.object({
   email: z.string().email(),
@@ -26,6 +27,7 @@ const signInFormSchema = z.object({
 type SignInFormData = z.infer<typeof signInFormSchema>
 
 export default function SignInScreen() {
+  const { signIn } = useAuth()
   const router = useRouter()
 
   const {
@@ -40,7 +42,9 @@ export default function SignInScreen() {
     router.push('/auth/sign-up')
   }
 
-  async function handleSignIn(data: SignInFormData) {}
+  async function handleSignIn(data: SignInFormData) {
+    signIn()
+  }
 
   return (
     <TouchableWithoutFeedback style={{ flex: 1 }} onPress={Keyboard.dismiss}>

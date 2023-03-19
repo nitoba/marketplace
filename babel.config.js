@@ -21,6 +21,7 @@ module.exports = function (api) {
             '@api': './src/api',
             '@atoms': './src/atoms',
             '@utils': './src/utils',
+            '@contexts': './src/contexts',
             '@theme': './src/theme',
           },
         },

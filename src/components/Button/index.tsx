@@ -1,4 +1,5 @@
 import { THEME } from '@theme/index'
+import { ReactNode } from 'react'
 import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native'
 import { styles } from './styles'
 
@@ -6,6 +7,7 @@ type Props = {
   title: string
   variant?: 'primary' | 'secondary' | 'tertiary'
   full?: boolean
+  leftIcon?: ReactNode
 } & TouchableOpacityProps
 
 export function Button({
@@ -14,6 +16,7 @@ export function Button({
   variant = 'primary',
   full = true,
   disabled,
+  leftIcon,
   ...props
 }: Props) {
   return (
@@ -28,6 +31,7 @@ export function Button({
       disabled={disabled}
       {...props}
     >
+      {leftIcon}
       <Text
         style={[
           styles.text,

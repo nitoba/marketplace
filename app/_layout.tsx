@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import {
   useFonts,
   Karla_400Regular,
@@ -6,7 +7,7 @@ import {
 } from '@expo-google-fonts/karla'
 import { ThemeProvider, useTheme } from '@react-navigation/native'
 import { SplashScreen, Stack } from 'expo-router'
-import { useEffect } from 'react'
+import { AuthProvider } from '@contexts/auth'
 import { THEME } from '../src/theme'
 export { ErrorBoundary } from 'expo-router'
 
@@ -37,10 +38,13 @@ function Layout() {
 
   return (
     <ThemeProvider value={theme}>
-      <Stack>
-        <Stack.Screen name="auth/sign-in" options={{ headerShown: false }} />
-        <Stack.Screen name="auth/sign-up" options={{ headerShown: false }} />
-      </Stack>
+      <AuthProvider>
+        <Stack>
+          <Stack.Screen name="home" options={{ headerShown: false }} />
+          <Stack.Screen name="auth/sign-in" options={{ headerShown: false }} />
+          <Stack.Screen name="auth/sign-up" options={{ headerShown: false }} />
+        </Stack>
+      </AuthProvider>
     </ThemeProvider>
   )
 }

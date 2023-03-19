@@ -11,6 +11,7 @@
       "@interfaces/*": ["interfaces/*"],
       "@navigation/*": ["navigation/*"],
       "@constants/*": ["constants/*"],
+      "@contexts/*": ["src/contexts/*"],
       "@assets/*": ["assets/*"],
       "@hooks/*": ["src/hooks/*"],
       "@stores/*": ["stores/*"],
