@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     padding: 12,
     columnGap: 8,
     borderRadius: 6,
-    alignSelf: 'center',
+    alignSelf: 'flex-end',
   },
   text: {
     fontFamily: THEME.FONTS.BOLD,

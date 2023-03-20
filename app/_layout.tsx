@@ -9,6 +9,7 @@ import { ThemeProvider, useTheme } from '@react-navigation/native'
 import { SplashScreen, Stack } from 'expo-router'
 import { AuthProvider } from '@contexts/auth'
 import { THEME } from '../src/theme'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 export { ErrorBoundary } from 'expo-router'
 
 export default function RootLayout() {
@@ -37,14 +38,22 @@ function Layout() {
   theme.colors.background = THEME.COLORS.GRAY_100
 
   return (
-    <ThemeProvider value={theme}>
-      <AuthProvider>
-        <Stack>
-          <Stack.Screen name="home" options={{ headerShown: false }} />
-          <Stack.Screen name="auth/sign-in" options={{ headerShown: false }} />
-          <Stack.Screen name="auth/sign-up" options={{ headerShown: false }} />
-        </Stack>
-      </AuthProvider>
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider value={theme}>
+        <AuthProvider>
+          <Stack>
+            <Stack.Screen name="home" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="auth/sign-in"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="auth/sign-up"
+              options={{ headerShown: false }}
+            />
+          </Stack>
+        </AuthProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   )
 }
