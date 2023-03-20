@@ -7,6 +7,7 @@ import { THEME } from '@theme/index'
 import { X } from 'phosphor-react-native'
 import { forwardRef, useMemo } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 import { SelectConditions } from './SelectConditions'
 import { styles } from './styles'
 
@@ -15,7 +16,7 @@ type Props = {
 }
 
 export const FilterBottomSheet = forwardRef(({ onClose }: Props, ref: any) => {
-  const snapPoints = useMemo(() => ['25%', '50%'], [])
+  const snapPoints = useMemo(() => ['25%', '68%', '80%'], [])
 
   return (
     <BottomSheetModal
@@ -26,7 +27,11 @@ export const FilterBottomSheet = forwardRef(({ onClose }: Props, ref: any) => {
       handleIndicatorStyle={{ backgroundColor: THEME.COLORS.GRAY_400 }}
       backgroundStyle={styles.bottomSheetHeader}
     >
-      <View style={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        style={{ flex: 1 }}
+        disallowInterruption
+      >
         <View style={styles.header}>
           <Text style={styles.title}>Filtrar anúncios</Text>
           <TouchableOpacity onPress={onClose}>
@@ -37,15 +42,24 @@ export const FilterBottomSheet = forwardRef(({ onClose }: Props, ref: any) => {
 
         <View style={styles.trade}>
           <Text style={styles.filterTitle}>Aceita troca?</Text>
-          <Switch />
+          <Switch isChecked={false} onChange={console.log} />
         </View>
 
         <View style={styles.paymentsMethod}>
           <Text style={styles.filterTitle}>Aceita troca</Text>
-          <CheckBox />
-          <CheckBox />
-          <CheckBox />
-          <CheckBox />
+          <CheckBox title="Boleto" isChecked={false} onChange={console.log} />
+          <CheckBox title="Pix" isChecked={false} onChange={console.log} />
+          <CheckBox title="Dinheiro" isChecked={false} onChange={console.log} />
+          <CheckBox
+            title="Cartão de crédito"
+            isChecked={false}
+            onChange={console.log}
+          />
+          <CheckBox
+            title="Depósito bancário"
+            isChecked={false}
+            onChange={console.log}
+          />
         </View>
 
         <View style={styles.actions}>
@@ -62,7 +76,7 @@ export const FilterBottomSheet = forwardRef(({ onClose }: Props, ref: any) => {
             style={{ flex: 1 }}
           />
         </View>
-      </View>
+      </ScrollView>
     </BottomSheetModal>
   )
 })

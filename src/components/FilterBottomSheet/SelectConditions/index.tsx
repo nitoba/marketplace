@@ -17,12 +17,21 @@ type Props = {
   onChange: (filters: string[]) => void
 }
 
+const conditionsArray = [
+  {
+    id: 'new',
+    title: 'Novo',
+  },
+  {
+    id: 'used',
+    title: 'Usado',
+  },
+]
+
 export function SelectConditions({ onChange }: Props) {
   const [conditions, setConditions] = useState<string[]>([])
-  const selectedNewConditionFilter = conditions.includes('new')
-  const selectedUsedConditionFilter = conditions.includes('used')
 
-  function handleAddNewConditionFilter(newCondition: 'new' | 'used') {
+  function handleAddNewConditionFilter(newCondition: string) {
     let newConditionFilter
     if (conditions.includes(newCondition)) {
       newConditionFilter = conditions.filter(
@@ -41,16 +50,14 @@ export function SelectConditions({ onChange }: Props) {
       <Text style={styles.title}>Condição</Text>
 
       <View style={styles.options}>
-        <OptionPill
-          title="Novo"
-          onPress={() => handleAddNewConditionFilter('new')}
-          isChecked={selectedNewConditionFilter}
-        />
-        <OptionPill
-          title="Usado"
-          onPress={() => handleAddNewConditionFilter('used')}
-          isChecked={selectedUsedConditionFilter}
-        />
+        {conditionsArray.map((condition) => (
+          <OptionPill
+            key={condition.id}
+            title={condition.title}
+            onPress={() => handleAddNewConditionFilter(condition.id)}
+            isChecked={conditions.includes(condition.id)}
+          />
+        ))}
       </View>
     </View>
   )

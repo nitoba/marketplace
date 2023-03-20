@@ -29,10 +29,15 @@ export const styles = StyleSheet.create({
     color: THEME.COLORS.GRAY_600,
   },
 
-  trade: {},
-  paymentsMethod: {},
+  trade: {
+    rowGap: 12,
+  },
+
+  paymentsMethod: {
+    rowGap: 12,
+  },
   actions: {
-    flex: 1,
+    // flex: 1,
     flexDirection: 'row',
     columnGap: 12,
     // justifyContent: 'flex-end',

@@ -24,17 +24,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: 8,
     backgroundColor: THEME.COLORS.GRAY_300,
-
     borderRadius: 9999,
     alignSelf: 'flex-start',
-  },
-
-  conditionFilterSelected: {
-    backgroundColor: THEME.COLORS.BLUE_LIGHT,
-  },
-
-  conditionOptionFilterTextSelected: {
-    color: 'white',
   },
 
   conditionOptionFilterText: {
