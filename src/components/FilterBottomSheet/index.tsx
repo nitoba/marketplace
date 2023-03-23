@@ -48,6 +48,11 @@ export const FilterBottomSheet = forwardRef(({ onClose }: Props, ref: any) => {
     reset()
   }
 
+  function handleClose() {
+    handleResetFilters()
+    onClose()
+  }
+
   return (
     <BottomSheetModal
       ref={ref}
@@ -64,7 +69,7 @@ export const FilterBottomSheet = forwardRef(({ onClose }: Props, ref: any) => {
       >
         <View style={styles.header}>
           <Text style={styles.title}>Filtrar anúncios</Text>
-          <TouchableOpacity onPress={onClose}>
+          <TouchableOpacity onPress={handleClose}>
             <X size={24} />
           </TouchableOpacity>
         </View>
