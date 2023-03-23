@@ -18,7 +18,7 @@ type CheckBoxProps = {
 }
 
 export function CheckBox({ title, isChecked, onChange, style }: CheckBoxProps) {
-  const checked = useSharedValue(isChecked ? 1 : 0)
+  const checked = useSharedValue(0)
 
   const animatedContainerStyle = useAnimatedStyle(() => {
     return {
@@ -41,7 +41,7 @@ export function CheckBox({ title, isChecked, onChange, style }: CheckBoxProps) {
   }
 
   useEffect(() => {
-    isChecked ? withTiming(1) : withTiming(0)
+    checked.value = isChecked ? withTiming(1) : withTiming(0)
   }, [isChecked])
 
   return (

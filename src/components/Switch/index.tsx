@@ -17,7 +17,7 @@ type SwitchProps = {
 }
 
 export function Switch({ isChecked, onChange, style }: SwitchProps) {
-  const checked = useSharedValue(isChecked ? 1 : 0)
+  const checked = useSharedValue(0)
 
   const animatedTrackStyle = useAnimatedStyle(() => {
     return {
@@ -41,7 +41,7 @@ export function Switch({ isChecked, onChange, style }: SwitchProps) {
   }
 
   useEffect(() => {
-    isChecked ? withTiming(1) : withTiming(0)
+    checked.value = isChecked ? withTiming(1) : withTiming(0)
   }, [isChecked])
 
   return (

@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   },
   productImage: {
     position: 'relative',
-    height: 100,
+    aspectRatio: 1,
     borderRadius: 6,
   },
   userImage: {

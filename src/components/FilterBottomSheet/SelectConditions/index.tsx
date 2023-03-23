@@ -15,6 +15,7 @@ const AnimatedPressable = Animated.createAnimatedComponent(Pressable)
 
 type Props = {
   onChange: (filters: string[]) => void
+  conditions: string[]
 }
 
 const conditionsArray = [
@@ -28,7 +29,10 @@ const conditionsArray = [
   },
 ]
 
-export function SelectConditions({ onChange }: Props) {
+export function SelectConditions({
+  onChange,
+  conditions: currentConditions,
+}: Props) {
   const [conditions, setConditions] = useState<string[]>([])
 
   function handleAddNewConditionFilter(newCondition: string) {
@@ -44,6 +48,10 @@ export function SelectConditions({ onChange }: Props) {
     setConditions(newConditionFilter)
     onChange(newConditionFilter)
   }
+
+  useEffect(() => {
+    setConditions(currentConditions)
+  }, [currentConditions])
 
   return (
     <View style={styles.conditions}>
