@@ -41,7 +41,10 @@ function Layout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeProvider value={theme}>
         <AuthProvider>
-          <Stack screenOptions={{ headerShown: false }} />
+          <Stack
+            screenOptions={{ headerShown: false }}
+            initialRouteName="ad-details/123"
+          />
         </AuthProvider>
       </ThemeProvider>
     </GestureHandlerRootView>

@@ -10,6 +10,7 @@ import { forwardRef, useMemo } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
+import { paymentMethodsArray } from '../../../src/types/paymentMethods'
 import { z } from 'zod'
 import { SelectConditions } from './SelectConditions'
 import { styles } from './styles'
@@ -17,9 +18,7 @@ import { styles } from './styles'
 const adsFilterSchema = z.object({
   conditions: z.array(z.enum(['new', 'used'])),
   acceptsExchange: z.boolean(),
-  paymentMethods: z.array(
-    z.enum(['boleto', 'pix', 'cash', 'credit-card', 'debit-bank']),
-  ),
+  paymentMethods: z.array(z.enum([...paymentMethodsArray])),
 })
 
 type AdsFilterForm = z.infer<typeof adsFilterSchema>
