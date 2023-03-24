@@ -15,9 +15,14 @@ type Props = {
 
 export function CardProduct({
   product: { title, thumbnail, price, condition, ownerAvatarUrl },
+  onPressCard,
 }: Props) {
   return (
-    <TouchableOpacity style={styles.container} activeOpacity={0.1}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.1}
+      onPress={onPressCard}
+    >
       <ImageBackground
         resizeMode="cover"
         imageStyle={styles.productImage}

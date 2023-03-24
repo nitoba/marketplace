@@ -28,10 +28,13 @@ import {
   BottomSheetModalProvider,
 } from '@gorhom/bottom-sheet'
 import { FilterBottomSheet } from '@components/FilterBottomSheet'
+import { useRouter } from 'expo-router'
 
 export default function AdsScreen() {
   const [productsAds, setProductsAds] = useState<ProductAd[]>([])
   const bottomSheetRef = useRef<BottomSheetModal>(null)
+
+  const router = useRouter()
 
   useEffect(() => {
     api.get('/products').then(({ data }) => {
@@ -56,6 +59,10 @@ export default function AdsScreen() {
 
   function handleCloseProductAdFilter() {
     bottomSheetRef.current?.close()
+  }
+
+  function handleNavigateToProductDetails(id: string) {
+    router.push(`/ad-details/${id}`)
   }
 
   return (
@@ -146,7 +153,10 @@ export default function AdsScreen() {
                   index % 2 === 0 ? { marginRight: 10 } : { marginLeft: 10 },
                 ]}
               >
-                <CardProduct product={item} onPressCard={() => {}} />
+                <CardProduct
+                  product={item}
+                  onPressCard={() => handleNavigateToProductDetails(item.id)}
+                />
               </View>
             )}
             ListEmptyComponent={() => (

@@ -41,17 +41,7 @@ function Layout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeProvider value={theme}>
         <AuthProvider>
-          <Stack>
-            <Stack.Screen name="home" options={{ headerShown: false }} />
-            <Stack.Screen
-              name="auth/sign-in"
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="auth/sign-up"
-              options={{ headerShown: false }}
-            />
-          </Stack>
+          <Stack screenOptions={{ headerShown: false }} />
         </AuthProvider>
       </ThemeProvider>
     </GestureHandlerRootView>
