@@ -58,8 +58,8 @@ function useProtectedRoute(user: User | null) {
       router.replace('/auth/sign-in')
     } else {
       // Redirect away from the sign-in page.
-      // router.replace('/home/ads')
-      router.replace('/ad-details/ads')
+      router.replace('/home/ads')
+      // router.replace('/ad-details/ads')
     }
   }, [user])
 }
