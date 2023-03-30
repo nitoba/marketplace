@@ -36,11 +36,15 @@ export default function MyAdsScreen() {
     router.push(`/ad-details/${id}`)
   }
 
+  function handleNavigateToCreateAd() {
+    router.push(`/create-ad`)
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Meus anúncios</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleNavigateToCreateAd}>
           <Feather name="plus" color={THEME.COLORS.GRAY_700} size={24} />
         </TouchableOpacity>
       </View>

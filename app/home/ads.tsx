@@ -65,6 +65,13 @@ export default function AdsScreen() {
     router.push(`/ad-details/${id}`)
   }
 
+  function handleNavigateToCreateAd() {
+    router.push(`/create-ad`)
+  }
+  function handleNavigateToMyAds() {
+    router.push(`/home/my-ads`)
+  }
+
   return (
     <BottomSheetModalProvider>
       <FilterBottomSheet
@@ -87,6 +94,7 @@ export default function AdsScreen() {
             </View>
 
             <Button
+              onPress={handleNavigateToCreateAd}
               title="Criar anúncio"
               variant="secondary"
               full={false}
@@ -108,7 +116,10 @@ export default function AdsScreen() {
                   </Text>
                 </View>
               </View>
-              <TouchableOpacity style={styles.goToMyAdsButton}>
+              <TouchableOpacity
+                style={styles.goToMyAdsButton}
+                onPress={handleNavigateToMyAds}
+              >
                 <Text style={styles.goToMyAdsButtonText}>Meus anúncios</Text>
                 <ArrowRight color={THEME.COLORS.BLUE} size={16} />
               </TouchableOpacity>
