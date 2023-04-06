@@ -5,20 +5,40 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: THEME.COLORS.GRAY_200,
-    paddingHorizontal: 24,
+    paddingHorizontal: THEME.SPACES[6],
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 24,
+    paddingTop: THEME.SPACES[6],
   },
 
   title: {
     fontFamily: THEME.FONTS.BOLD,
     color: THEME.COLORS.GRAY_700,
-    fontSize: 20,
+    fontSize: THEME.FONTS.SIZES.lg,
     flex: 1,
     textAlign: 'center',
-    marginRight: 24,
+    marginRight: THEME.SPACES[6],
   },
+
+  sectionTitle: {
+    fontFamily: THEME.FONTS.BOLD,
+    color: THEME.COLORS.GRAY_700,
+    fontSize: THEME.FONTS.SIZES.md,
+  },
+
+  sectionSubtitle: {
+    fontFamily: THEME.FONTS.REGULAR,
+    color: THEME.COLORS.GRAY_500,
+    fontSize: THEME.FONTS.SIZES.sm,
+    marginTop: THEME.SPACES[2],
+  },
+
+  content: {
+    marginTop: THEME.SPACES[6],
+    gap: THEME.SPACES[8],
+  },
+
+  imagesSection: {},
 })

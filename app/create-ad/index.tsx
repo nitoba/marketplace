@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { styles } from '../../src/styles/create-ad/styles'
+import { SelectAdImages } from '@components/CreateAd/SelectAdImages'
 
 export default function CreateAd() {
   const { back } = useRouter()
@@ -14,6 +15,10 @@ export default function CreateAd() {
           <Feather name="arrow-left" color={THEME.COLORS.GRAY_700} size={24} />
         </TouchableOpacity>
         <Text style={styles.title}>Criar anúncio</Text>
+      </View>
+
+      <View style={styles.content}>
+        <SelectAdImages />
       </View>
     </SafeAreaView>
   )

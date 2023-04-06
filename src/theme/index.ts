@@ -18,5 +18,29 @@ export const THEME = {
     LIGHT: 'Karla_300Light',
     REGULAR: 'Karla_400Regular',
     BOLD: 'Karla_700Bold',
+
+    SIZES: {
+      sx: 12,
+      sm: 14,
+      md: 16,
+      lg: 20,
+      xl: 24,
+    },
+  },
+
+  SPACES: {
+    1: 4,
+    2: 8,
+    3: 12,
+    4: 16,
+    5: 20,
+    6: 24,
+    7: 28,
+    8: 32,
+  },
+
+  RADII: {
+    sm: 6,
+    full: 9999,
   },
 }

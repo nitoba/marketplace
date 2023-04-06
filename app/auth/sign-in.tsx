@@ -20,7 +20,7 @@ import { styles } from '../../src/styles/auth/sign-in/styles'
 import { useAuth } from '@contexts/auth'
 
 const signInFormSchema = z.object({
-  email: z.string().email(),
+  email: z.string().nonempty('Email obrigatório').email(),
   password: z.string().min(6),
 })
 

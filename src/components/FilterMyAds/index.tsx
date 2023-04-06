@@ -27,7 +27,7 @@ export function FilterMyAds({ onChange }: Props) {
   const containerOptionsStyles = useAnimatedStyle(() => {
     return {
       opacity: open.value === 1 ? withTiming(1) : withTiming(0),
-      height: open.value === 1 ? undefined : withTiming(0),
+      height: open.value === 1 ? withTiming(100) : withTiming(0),
     }
   })
 

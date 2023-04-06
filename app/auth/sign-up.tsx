@@ -15,9 +15,9 @@ import { styles } from '../../src/styles/auth/sign-up/styles'
 
 const signUpFormSchema = z
   .object({
-    name: z.string(),
-    email: z.string().email(),
-    phone: z.string(),
+    name: z.string().nonempty('Nome obrigatório'),
+    email: z.string().nonempty('Email obrigatório').email(),
+    phone: z.string().optional(),
     password: z.string().min(6),
     confirmPassword: z.string(),
   })
