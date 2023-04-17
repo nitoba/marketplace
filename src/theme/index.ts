@@ -43,4 +43,4 @@ export const THEME = {
     sm: 6,
     full: 9999,
   },
-}
+} as const
